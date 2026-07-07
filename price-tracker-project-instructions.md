@@ -4,7 +4,7 @@
 
 A Python-based price monitoring pipeline for Canadian Apple hardware and 5K monitors. It scrapes verified Canadian retailers twice daily, stores price history in SQLite, and sends macOS notifications on new all-time lows. Optional Notion logging. No cloud services. No paid APIs. Runs on Mac Mini (cron) with a planned migration to a headless Lenovo Ubuntu server in Q1 2027.
 
-**Repo location:** `~/Documents/price-tracker/` (Mac Mini)
+**Repo location:** clone directory (e.g. `~/price-tracker`)
 
 ---
 
@@ -18,6 +18,8 @@ A Python-based price monitoring pipeline for Canadian Apple hardware and 5K moni
 | `price_history.db` | Auto-created SQLite: `price_records` (current lows) + `price_history` (every run) |
 | `.env` | Optional `NOTION_TOKEN` and `NOTION_DATABASE_ID` (copy from `.env.example`) |
 | `requirements.txt` | Python dependencies (`pip install -r requirements.txt`) |
+| `LICENSE` | MIT license |
+| `SECURITY.md` | How to audit for secrets before going public |
 | `tracker.log` | Auto-created run log |
 | `cron.log` | Auto-created cron output |
 
@@ -118,12 +120,12 @@ python add_product.py --id dell_u2725d_amazon --name "Dell U2725D 5K - Amazon CA
 
 **Mac Mini (current):**
 ```
-00 07,19 * * * /usr/bin/python3 /Users/jainish/price-tracker/tracker.py >> /Users/jainish/price-tracker/cron.log 2>&1
+00 07,19 * * * /usr/bin/python3 /path/to/price-tracker/tracker.py >> /path/to/price-tracker/cron.log 2>&1
 ```
 
-**Lenovo Ubuntu server (planned Q1 2027):**
+**Linux server (example):**
 ```
-00 07,19 * * * /usr/bin/python3 /home/jainish/price-tracker/tracker.py >> /home/jainish/price-tracker/cron.log 2>&1
+00 07,19 * * * /usr/bin/python3 ~/price-tracker/tracker.py >> ~/price-tracker/cron.log 2>&1
 ```
 
 ---

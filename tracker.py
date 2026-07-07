@@ -6,18 +6,14 @@ Verified retailers only: Apple CA, Apple Refurb CA, Best Buy CA, Amazon CA, Cana
 69 product-retailer entries tracked as of July 2026
 
 Setup:
-    pip install playwright python-dotenv
+    pip install -r requirements.txt
     playwright install chromium
 
 Run:
     python tracker.py
 
-Cron (Mac Mini - twice daily at 7am and 7pm):
-    # In Terminal only: use a backslash before the space in the directory name
-    00 07,19 * * * /usr/bin/python3 /Users/jainishsoni/Documents/ClaudeProjects_Documents/Price Tracker/tracker.py >> /Users/jainishsoni/Documents/ClaudeProjects_Documents/Price Tracker/cron.log 2>&1
-
-Cron (Lenovo Ubuntu server - planned Q1 2027):
-    00 07,19 * * * /usr/bin/python3 /home/jainish/price-tracker/tracker.py >> /home/jainish/price-tracker/cron.log 2>&1
+Cron (example - twice daily at 7am and 7pm):
+    00 07,19 * * * /usr/bin/python3 /path/to/price-tracker/tracker.py >> /path/to/price-tracker/cron.log 2>&1
 """
 
 import json

@@ -90,19 +90,19 @@ python add_product.py --remove dell_u2725d_amazon
 
 Valid retailer keys: `amazon_ca`, `apple_ca`, `apple_refurb_ca`, `canada_computers`, `memory_express`, `newegg_ca`, `staples_ca`, `asus_ca` (`bestbuy_ca` paused, not addable via CLI)
 
-## Schedule (Mac Mini - macOS)
+## Schedule (cron)
 
 ```bash
 crontab -e
 ```
 
-Add to run at 7 AM and 7 PM daily:
+Add to run at 7 AM and 7 PM daily (replace `/path/to/price-tracker` with your clone):
 
 ```
-00 07,19 * * * /usr/bin/python3 /Users/jainishsoni/Documents/ClaudeProjects_Documents/Price\ Tracker/tracker.py >> /Users/jainishsoni/Documents/ClaudeProjects_Documents/Price\ Tracker/cron.log 2>&1
+00 07,19 * * * /usr/bin/python3 /path/to/price-tracker/tracker.py >> /path/to/price-tracker/cron.log 2>&1
 ```
 
-When Lenovo Ubuntu server is ready, replace the full path with `/home/jainish/price-tracker/tracker.py` and update the Python path to `/usr/bin/python3`.
+If the project path contains spaces, escape them in the crontab line (backslash before each space).
 
 ---
 
@@ -119,7 +119,7 @@ PROJECT CONTEXT:
 - add_product.py: CLI tool to interactively add/remove/list products without editing JSON manually.
 - price_history.db: auto-created SQLite with two tables: price_records (current low per product) and price_history (every run logged).
 - .env: holds optional NOTION_TOKEN and NOTION_DATABASE_ID. Copy from .env.example. Never commit .env.
-- Project path: /Users/jainishsoni/Documents/ClaudeProjects_Documents/Price Tracker/
+- Project path: clone directory (e.g. `~/price-tracker`)
 
 VERIFIED RETAILERS AND THEIR VERIFICATION LOGIC:
 - bestbuy_ca: PAUSED - not dispatched (bot detection, zero yield; scraper code retained)
@@ -159,4 +159,26 @@ Price Tracker/
   price_history.db    # Auto-created SQLite DB
   tracker.log         # Auto-created run log
   cron.log            # Auto-created cron output log
+  LICENSE             # MIT license
+  SECURITY.md         # Secret-handling and pre-public audit commands
 ```
+
+## Making this repository public
+
+1. **Audit for secrets** - run the commands in [SECURITY.md](SECURITY.md). The quick check:
+
+   ```bash
+   git log --all --oneline -- .env          # must be empty
+   git check-ignore -v .env                 # must show .gitignore
+   git log -p --all | grep 'NOTION_TOKEN='  # only placeholder lines in .env.example
+   ```
+
+2. **Review committed files** on GitHub - confirm no `.env`, database, or logs.
+
+3. **Add/keep `LICENSE`** - MIT license is included for open distribution.
+
+4. **GitHub Settings** - General - Danger Zone - Change visibility - Public.
+
+Keep `.env` local forever. Rotate Notion tokens if they were ever committed.
+
+---

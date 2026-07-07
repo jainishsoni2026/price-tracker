@@ -2,7 +2,7 @@
 Test Apple Certified Refurbished scraper and matching helpers.
 
 Run:
-    cd '/Users/jainishsoni/Documents/ClaudeProjects_Documents/Price Tracker'
+    cd /path/to/price-tracker
     source venv/bin/activate
     python test_refurb.py
 """
