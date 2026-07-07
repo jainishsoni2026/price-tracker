@@ -1,0 +1,4 @@
+.env
+price_history.db
+tracker.log
+cron.log

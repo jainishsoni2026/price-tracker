@@ -1,0 +1,21 @@
+# Secrets
+.env
+
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Local runtime data
+price_history.db
+tracker.log
+cron.log
+
+# macOS / editor
+.DS_Store
+.cursorignore.docx
+
+# Scratch / debug
+_write_test.txt
+inspect_dom.out

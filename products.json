@@ -1,0 +1,485 @@
+[
+  {
+    "id": "mac_studio_m4_max_apple",
+    "name": "Mac Studio M4 Max - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/mac-studio/m4-max",
+    "notes": "Official Apple Store CA - M4 Max chip. Short path redirects; scraper resolves chip config page."
+  },
+  {
+    "id": "mac_studio_m4_max_refurb",
+    "name": "Mac Studio M4 Max - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/mac-studio",
+    "notes": "Apple Certified Refurb CA. M4 Max chip matched from refurb catalog."
+  },
+  {
+    "id": "mac_studio_m4_max_canada_computers",
+    "name": "Mac Studio M4 Max - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=mac+studio+m4+max",
+    "notes": "M4 Max chip. Direct retailer"
+  },
+  {
+    "id": "mac_studio_m4_max_memory_express",
+    "name": "Mac Studio M4 Max - Memory Express",
+    "retailer": "memory_express",
+    "url": "https://www.memoryexpress.com/Search/Products?Search=mac+studio+m4+max",
+    "notes": "M4 Max chip. Direct retailer"
+  },
+  {
+    "id": "mac_studio_m4_max_newegg",
+    "name": "Mac Studio M4 Max - Newegg CA",
+    "retailer": "newegg_ca",
+    "url": "https://www.newegg.ca/p/pl?d=mac+studio+m4+max",
+    "notes": "M4 Max chip. Sold by Newegg Canada directly only"
+  },
+  {
+    "id": "mac_studio_m4_max_staples",
+    "name": "Mac Studio M4 Max - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=mac+studio+m4+max",
+    "notes": "M4 Max chip. Direct retailer"
+  },
+  {
+    "id": "mac_studio_m3_ultra_apple",
+    "name": "Mac Studio M3 Ultra - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/mac-studio/m3-ultra",
+    "notes": "Official Apple Store CA - M3 Ultra chip. Short path redirects; scraper resolves chip config page."
+  },
+  {
+    "id": "mac_studio_m3_ultra_refurb",
+    "name": "Mac Studio M3 Ultra - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/mac-studio",
+    "notes": "Apple Certified Refurb CA. M3 Ultra chip matched from refurb catalog."
+  },
+  {
+    "id": "mac_studio_m3_ultra_canada_computers",
+    "name": "Mac Studio M3 Ultra - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=mac+studio+m3+ultra",
+    "notes": "M3 Ultra chip. Direct retailer"
+  },
+  {
+    "id": "mac_studio_m3_ultra_memory_express",
+    "name": "Mac Studio M3 Ultra - Memory Express",
+    "retailer": "memory_express",
+    "url": "https://www.memoryexpress.com/Search/Products?Search=mac+studio+m3+ultra",
+    "notes": "M3 Ultra chip. Direct retailer"
+  },
+  {
+    "id": "mac_studio_m3_ultra_newegg",
+    "name": "Mac Studio M3 Ultra - Newegg CA",
+    "retailer": "newegg_ca",
+    "url": "https://www.newegg.ca/p/pl?d=mac+studio+m3+ultra",
+    "notes": "M3 Ultra chip. Sold by Newegg Canada directly only"
+  },
+  {
+    "id": "mac_studio_m3_ultra_staples",
+    "name": "Mac Studio M3 Ultra - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=mac+studio+m3+ultra",
+    "notes": "M3 Ultra chip. Direct retailer"
+  },
+  {
+    "id": "mac_mini_m4_apple",
+    "name": "Mac Mini M4 - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/mac-mini/m4-chip-10-core-cpu-10-core-gpu-16gb-memory-256gb-storage",
+    "notes": "Official Apple Store CA - M4 base config (256GB, from $1,099)"
+  },
+  {
+    "id": "mac_mini_m4_refurb",
+    "name": "Mac Mini M4 - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/mac-mini",
+    "notes": "Apple Certified Refurb CA. M4 chip matched from refurb catalog."
+  },
+  {
+    "id": "mac_mini_m4_canada_computers",
+    "name": "Mac Mini M4 - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=mac+mini+m4",
+    "notes": "M4 chip. Direct retailer"
+  },
+  {
+    "id": "mac_mini_m4_memory_express",
+    "name": "Mac Mini M4 - Memory Express",
+    "retailer": "memory_express",
+    "url": "https://www.memoryexpress.com/Search/Products?Search=mac+mini+m4",
+    "notes": "M4 chip. Direct retailer"
+  },
+  {
+    "id": "mac_mini_m4_newegg",
+    "name": "Mac Mini M4 - Newegg CA",
+    "retailer": "newegg_ca",
+    "url": "https://www.newegg.ca/p/pl?d=mac+mini+m4",
+    "notes": "M4 chip. Sold by Newegg Canada directly only"
+  },
+  {
+    "id": "mac_mini_m4_staples",
+    "name": "Mac Mini M4 - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=mac+mini+m4",
+    "notes": "M4 chip. Direct retailer"
+  },
+  {
+    "id": "mac_mini_m4_pro_apple",
+    "name": "Mac Mini M4 Pro - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/mac-mini/m4-pro",
+    "notes": "Official Apple Store CA - M4 Pro chip. Short path redirects; scraper resolves chip config page."
+  },
+  {
+    "id": "mac_mini_m4_pro_refurb",
+    "name": "Mac Mini M4 Pro - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/mac-mini",
+    "notes": "Apple Certified Refurb CA. M4 Pro chip matched from refurb catalog."
+  },
+  {
+    "id": "mac_mini_m4_pro_canada_computers",
+    "name": "Mac Mini M4 Pro - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=mac+mini+m4+pro",
+    "notes": "M4 Pro chip. Direct retailer"
+  },
+  {
+    "id": "mac_mini_m4_pro_memory_express",
+    "name": "Mac Mini M4 Pro - Memory Express",
+    "retailer": "memory_express",
+    "url": "https://www.memoryexpress.com/Search/Products?Search=mac+mini+m4+pro",
+    "notes": "M4 Pro chip. Direct retailer"
+  },
+  {
+    "id": "mac_mini_m4_pro_newegg",
+    "name": "Mac Mini M4 Pro - Newegg CA",
+    "retailer": "newegg_ca",
+    "url": "https://www.newegg.ca/p/pl?d=mac+mini+m4+pro",
+    "notes": "M4 Pro chip. Sold by Newegg Canada directly only"
+  },
+  {
+    "id": "mac_mini_m4_pro_staples",
+    "name": "Mac Mini M4 Pro - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=mac+mini+m4+pro",
+    "notes": "M4 Pro chip. Direct retailer"
+  },
+  {
+    "id": "macbook_air_13_m3_apple",
+    "name": "MacBook Air 13-inch M3 - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch-m3",
+    "notes": "Official Apple Store CA - chip-specific buy page"
+  },
+  {
+    "id": "macbook_air_13_m3_refurb",
+    "name": "MacBook Air 13-inch M3 - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/macbook-air",
+    "notes": "Apple Certified Refurb CA"
+  },
+  {
+    "id": "macbook_air_13_m3_canada_computers",
+    "name": "MacBook Air 13-inch M3 - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=macbook+air+13+m3",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_air_13_m3_memory_express",
+    "name": "MacBook Air 13-inch M3 - Memory Express",
+    "retailer": "memory_express",
+    "url": "https://www.memoryexpress.com/Search/Products?Search=macbook+air+13+m3",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_air_13_m3_newegg",
+    "name": "MacBook Air 13-inch M3 - Newegg CA",
+    "retailer": "newegg_ca",
+    "url": "https://www.newegg.ca/p/pl?d=macbook+air+13+m3",
+    "notes": "Sold by Newegg Canada directly only"
+  },
+  {
+    "id": "macbook_air_13_m3_staples",
+    "name": "MacBook Air 13-inch M3 - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=macbook+air+13+m3",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_air_13_m4_apple",
+    "name": "MacBook Air 13-inch M4 - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch-m4",
+    "notes": "Official Apple Store CA - chip-specific buy page"
+  },
+  {
+    "id": "macbook_air_13_m4_refurb",
+    "name": "MacBook Air 13-inch M4 - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/macbook-air",
+    "notes": "Apple Certified Refurb CA"
+  },
+  {
+    "id": "macbook_air_13_m4_canada_computers",
+    "name": "MacBook Air 13-inch M4 - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=macbook+air+13+m4",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_air_13_m4_memory_express",
+    "name": "MacBook Air 13-inch M4 - Memory Express",
+    "retailer": "memory_express",
+    "url": "https://www.memoryexpress.com/Search/Products?Search=macbook+air+13+m4",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_air_13_m4_newegg",
+    "name": "MacBook Air 13-inch M4 - Newegg CA",
+    "retailer": "newegg_ca",
+    "url": "https://www.newegg.ca/p/pl?d=macbook+air+13+m4",
+    "notes": "Sold by Newegg Canada directly only"
+  },
+  {
+    "id": "macbook_air_13_m4_staples",
+    "name": "MacBook Air 13-inch M4 - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=macbook+air+13+m4",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_air_13_m5_apple",
+    "name": "MacBook Air 13-inch M5 - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/macbook-air/13-inch-midnight-m5-chip-10-core-cpu-8-core-gpu-16gb-memory-512gb-storage",
+    "notes": "Official Apple Store CA - new units. Launched March 11 2026, starts at $1499 CAD"
+  },
+  {
+    "id": "macbook_air_13_m5_refurb",
+    "name": "MacBook Air 13-inch M5 - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/macbook-air",
+    "notes": "Apple Certified Refurb CA. M5 units now available on refurb store"
+  },
+  {
+    "id": "macbook_air_13_m5_canada_computers",
+    "name": "MacBook Air 13-inch M5 - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=macbook+air+13+m5",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_air_13_m5_memory_express",
+    "name": "MacBook Air 13-inch M5 - Memory Express",
+    "retailer": "memory_express",
+    "url": "https://www.memoryexpress.com/Search/Products?Search=macbook+air+13+m5",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_air_13_m5_newegg",
+    "name": "MacBook Air 13-inch M5 - Newegg CA",
+    "retailer": "newegg_ca",
+    "url": "https://www.newegg.ca/p/pl?d=macbook+air+13+m5",
+    "notes": "Sold by Newegg Canada directly only"
+  },
+  {
+    "id": "macbook_air_13_m5_staples",
+    "name": "MacBook Air 13-inch M5 - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=macbook+air+13+m5",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_pro_14_m4_apple",
+    "name": "MacBook Pro 14-inch M4 - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-m4",
+    "notes": "Official Apple Store CA - chip-specific buy page"
+  },
+  {
+    "id": "macbook_pro_14_m4_refurb",
+    "name": "MacBook Pro 14-inch M4 - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/macbook-pro",
+    "notes": "Apple Certified Refurb CA"
+  },
+  {
+    "id": "macbook_pro_14_m4_canada_computers",
+    "name": "MacBook Pro 14-inch M4 - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=macbook+pro+14+m4",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_pro_14_m4_staples",
+    "name": "MacBook Pro 14-inch M4 - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=macbook+pro+14+m4",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_pro_14_m4_pro_apple",
+    "name": "MacBook Pro 14-inch M4 Pro - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-m4-pro",
+    "notes": "Official Apple Store CA - chip-specific buy page"
+  },
+  {
+    "id": "macbook_pro_14_m4_pro_refurb",
+    "name": "MacBook Pro 14-inch M4 Pro - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/macbook-pro",
+    "notes": "Apple Certified Refurb CA"
+  },
+  {
+    "id": "macbook_pro_14_m4_pro_canada_computers",
+    "name": "MacBook Pro 14-inch M4 Pro - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=macbook+pro+14+m4+pro",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_pro_14_m4_pro_staples",
+    "name": "MacBook Pro 14-inch M4 Pro - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=macbook+pro+14+m4+pro",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_pro_14_m5_apple",
+    "name": "MacBook Pro 14-inch M5 - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-space-black-standard-display-apple-m5-chip-10-core-cpu-10-core-gpu-16gb-memory-1tb-storage",
+    "notes": "Official Apple Store CA - new units"
+  },
+  {
+    "id": "macbook_pro_14_m5_refurb",
+    "name": "MacBook Pro 14-inch M5 - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/macbook-pro",
+    "notes": "Apple Certified Refurb CA. M5 units now available on refurb store"
+  },
+  {
+    "id": "macbook_pro_14_m5_canada_computers",
+    "name": "MacBook Pro 14-inch M5 - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=macbook+pro+14+m5",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_pro_14_m5_staples",
+    "name": "MacBook Pro 14-inch M5 - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=macbook+pro+14+m5",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_pro_14_m5_pro_apple",
+    "name": "MacBook Pro 14-inch M5 Pro - Apple Store",
+    "retailer": "apple_ca",
+    "url": "https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-space-black-standard-display-apple-m5-pro-chip-15-core-cpu-16-core-gpu-24gb-memory-1tb-storage",
+    "notes": "Official Apple Store CA - new units. Launched March 11 2026, starts at $2999 CAD"
+  },
+  {
+    "id": "macbook_pro_14_m5_pro_refurb",
+    "name": "MacBook Pro 14-inch M5 Pro - Apple Certified Refurbished",
+    "retailer": "apple_refurb_ca",
+    "url": "https://www.apple.com/ca/shop/refurbished/mac/macbook-pro",
+    "notes": "Apple Certified Refurb CA. M5 Pro units now available on refurb store"
+  },
+  {
+    "id": "macbook_pro_14_m5_pro_canada_computers",
+    "name": "MacBook Pro 14-inch M5 Pro - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=macbook+pro+14+m5+pro",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "macbook_pro_14_m5_pro_staples",
+    "name": "MacBook Pro 14-inch M5 Pro - Staples CA",
+    "retailer": "staples_ca",
+    "url": "https://www.staples.ca/search?query=macbook+pro+14+m5+pro",
+    "notes": "Direct retailer"
+  },
+  {
+    "id": "asus_proart_pa27jcv_amazon",
+    "name": "ASUS ProArt PA27JCV 5K - Amazon CA",
+    "retailer": "amazon_ca",
+    "url": "https://www.amazon.ca/s?k=ASUS+ProArt+PA27JCV+5K",
+    "notes": "Only Ships from and Sold by Amazon.ca"
+  },
+  {
+    "id": "asus_proart_pa27jcv_newegg",
+    "name": "ASUS ProArt PA27JCV 5K - Newegg CA",
+    "retailer": "newegg_ca",
+    "url": "https://www.newegg.ca/p/pl?d=ASUS+ProArt+PA27JCV",
+    "notes": "Sold by Newegg Canada directly only"
+  },
+  {
+    "id": "asus_proart_pa27jcv_asus_ca",
+    "name": "ASUS ProArt PA27JCV 5K - ASUS Canada",
+    "retailer": "asus_ca",
+    "url": "https://www.asus.com/ca-en/displays-desktops/monitors/proart/proart-display-5k-pa27jcv/",
+    "notes": "Official ASUS Canada store. Direct retailer."
+  },
+  {
+    "id": "asus_rog_strix_xg27jcg_amazon",
+    "name": "ASUS ROG Strix 5K XG27JCG - Amazon CA",
+    "retailer": "amazon_ca",
+    "url": "https://www.amazon.ca/s?k=ASUS+ROG+Strix+XG27JCG+5K",
+    "notes": "27-inch 5K 180Hz HDR600. Only Ships from and Sold by Amazon.ca"
+  },
+  {
+    "id": "asus_rog_strix_xg27jcg_canada_computers",
+    "name": "ASUS ROG Strix 5K XG27JCG - Canada Computers",
+    "retailer": "canada_computers",
+    "url": "https://www.canadacomputers.com/search/results_details.php?keywords=XG27JCG",
+    "notes": "27-inch 5K 180Hz HDR600. Direct retailer"
+  },
+  {
+    "id": "asus_rog_strix_xg27jcg_newegg",
+    "name": "ASUS ROG Strix 5K XG27JCG - Newegg CA",
+    "retailer": "newegg_ca",
+    "url": "https://www.newegg.ca/p/pl?d=ASUS+ROG+XG27JCG",
+    "notes": "27-inch 5K 180Hz HDR600. Sold by Newegg Canada directly only"
+  },
+  {
+    "id": "asus_rog_strix_xg27jcg_asus_ca",
+    "name": "ASUS ROG Strix 5K XG27JCG - ASUS Canada",
+    "retailer": "asus_ca",
+    "url": "https://rog.asus.com/ca-en/monitors/27-to-31-5-inches/rog-strix-5k-xg27jcg/",
+    "notes": "Official ASUS Canada store. Direct retailer."
+  },
+  {
+    "id": "lg_ultrafine_5k_amazon",
+    "name": "LG UltraFine 5K 27MD5KL - Amazon CA",
+    "retailer": "amazon_ca",
+    "url": "https://www.amazon.ca/s?k=LG+UltraFine+5K+27MD5KL",
+    "notes": "Only Ships from and Sold by Amazon.ca"
+  },
+  {
+    "id": "benq_ma270s_amazon",
+    "name": "BenQ MA270S 5K - Amazon CA",
+    "retailer": "amazon_ca",
+    "url": "https://www.amazon.ca/s?k=BenQ+MA270S+5K",
+    "notes": "Only Ships from and Sold by Amazon.ca"
+  },
+  {
+    "id": "benq_pd2730s_amazon",
+    "name": "BenQ PD2730S 5K - Amazon CA",
+    "retailer": "amazon_ca",
+    "url": "https://www.amazon.ca/s?k=BenQ+PD2730S",
+    "notes": "Only Ships from and Sold by Amazon.ca"
+  },
+  {
+    "id": "benq_pd2730s_newegg",
+    "name": "BenQ PD2730S 5K - Newegg CA",
+    "retailer": "newegg_ca",
+    "url": "https://www.newegg.ca/p/pl?d=BenQ+PD2730S",
+    "notes": "Sold by Newegg Canada directly only"
+  }
+]
