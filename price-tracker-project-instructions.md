@@ -1,10 +1,6 @@
-# Price Tracker - Claude Project Instructions
+# Price Tracker - Maintainer Notes (Cursor)
 
-## What this project is
-
-A Python-based price monitoring pipeline for Canadian Apple hardware and 5K monitors. It scrapes verified Canadian retailers twice daily, stores price history in SQLite, and sends macOS notifications on new all-time lows. Optional Notion logging. No cloud services. No paid APIs. Runs on Mac Mini (cron) with a planned migration to a headless Lenovo Ubuntu server in Q1 2027.
-
-**Repo location:** clone directory (e.g. `~/price-tracker`)
+Internal context for AI-assisted development. For setup, product list, and usage, see [README.md](README.md).
 
 ---
 
@@ -12,146 +8,75 @@ A Python-based price monitoring pipeline for Canadian Apple hardware and 5K moni
 
 | File | Purpose |
 |---|---|
-| `tracker.py` | Main engine: scrapes all retailers, writes to SQLite, fires macOS notifications |
-| `products.json` | Watchlist of product-retailer pairs (69 entries as of July 2026) |
-| `add_product.py` | CLI tool to add/remove/list products without editing JSON manually |
-| `price_history.db` | Auto-created SQLite: `price_records` (current lows) + `price_history` (every run) |
-| `.env` | Optional `NOTION_TOKEN` and `NOTION_DATABASE_ID` (copy from `.env.example`) |
-| `requirements.txt` | Python dependencies (`pip install -r requirements.txt`) |
-| `LICENSE` | MIT license |
-| `SECURITY.md` | How to audit for secrets before going public |
-| `tracker.log` | Auto-created run log |
-| `cron.log` | Auto-created cron output |
+| `tracker.py` | Scrapers, SQLite, macOS notifications, optional Notion logging |
+| `products.json` | Watchlist (69 entries) |
+| `add_product.py` | CLI to add/remove/list products |
+| `test_refurb.py` | Unit + Playwright tests for `apple_refurb_ca` |
+| `requirements.txt` | `pip install -r requirements.txt` |
+| `.env` | Optional `NOTION_TOKEN`, `NOTION_DATABASE_ID` (never commit) |
+| `SECURITY.md` | Secret audit commands |
 
 ---
 
-## Verified retailers and their seller verification logic
+## Seller verification (do not weaken)
 
-This is the most important rule in the project. A price must never be recorded from a third-party marketplace seller. Each retailer has explicit verification:
-
-| Key | Verification required before recording price |
+| Key | Rule |
 |---|---|
-| `bestbuy_ca` | **Paused** - not dispatched. Page must contain "Sold and shipped by Best Buy" when re-enabled. |
-| `amazon_ca` | Buy-box must show "Sold by Amazon.ca" AND "Ships from Amazon.ca" |
-| `newegg_ca` | Must be sold by Newegg Canada directly, not a Newegg Marketplace seller |
-| `apple_ca` | Official Apple Store CA - no verification needed |
-| `apple_refurb_ca` | Apple Certified Refurbished CA - all listings are Apple-certified |
-| `canada_computers` | Direct retailer - no verification needed |
-| `memory_express` | Direct retailer - no verification needed |
-| `staples_ca` | Direct retailer - no verification needed |
-| `asus_ca` | Direct retailer, official ASUS Canada store, no marketplace filtering needed |
+| `amazon_ca` | Buy-box: sold by and ships from Amazon.ca |
+| `newegg_ca` | Sold by Newegg Canada only, not marketplace |
+| `bestbuy_ca` | **Paused** - not in `RETAILER_MAP`; code retained |
+| Direct retailers (`apple_ca`, `apple_refurb_ca`, `canada_computers`, `memory_express`, `staples_ca`, `asus_ca`) | No marketplace filter |
 
-Never bypass, soften, or remove seller verification logic. If a scraper cannot confirm the seller, it must return `None`.
+If seller cannot be confirmed, return `None`.
 
 ---
 
-## Products tracked (July 2026)
+## Scraper status (July 2026)
 
-**Mac hardware**
-- Mac Studio M4 Max / M3 Ultra: Apple (new + refurb), Canada Computers, Memory Express, Newegg, Staples
-- Mac Mini M4 / M4 Pro: Apple (new + refurb), Canada Computers, Memory Express, Newegg, Staples
-- MacBook Air 13-inch M3/M4/M5: Apple (new + refurb), Canada Computers, Memory Express, Newegg, Staples
-- MacBook Pro 14-inch M4/M4 Pro/M5/M5 Pro: Apple (new + refurb), Canada Computers, Staples (M5 Pro launched March 11 2026, from $2,999 CAD)
+| Status | Retailers |
+|---|---|
+| Working | `apple_ca`, `apple_refurb_ca`, `newegg_ca`, `asus_ca`, `canada_computers` |
+| Paused | `bestbuy_ca` (not dispatched) |
+| Not working | `amazon_ca`, `memory_express`, `staples_ca` |
 
-**5K monitors**
-- ASUS ProArt PA27JCV: Amazon, Newegg, ASUS Canada
-- ASUS ROG Strix XG27JCG (27-inch 5K 180Hz HDR600): Amazon, Canada Computers, Newegg, ASUS Canada
-- LG UltraFine 5K 27MD5KL: Amazon
-- BenQ MA270S: Amazon
-- BenQ PD2730S: Amazon, Newegg
-
-Total: 69 product-retailer entries
+`canada_computers`: migrated off dead Magento URLs; search-result pre-filter and 30s deadline enforced. Verify on live cron runs.
 
 ---
 
-## Known scraper issues (July 2026)
+## Coding rules
 
-**Working**
-- `apple_ca`
-- `apple_refurb_ca` (timeout fix applied)
-- `newegg_ca` (monitors working)
-- `asus_ca` (new)
-
-**Paused (not dispatched)**
-- `bestbuy_ca` (bot detection, zero yield; removed from watchlist, scraper code retained)
-
-**Not working**
-- `amazon_ca` (bot detection)
-- `canada_computers` (URL/JS issues)
-- `memory_express` (Cloudflare)
-- `staples_ca` (JS not rendering)
-
-Best Buy CA is paused (removed from `products.json` and `RETAILER_MAP`) due to bot detection and zero successful checks. Amazon CA is intentionally not being pursued further due to bot detection. Check those retailers manually when notified by alerts from other retailers.
+1. No em dashes in code, comments, or docs.
+2. Every scraper in try/except - one failure must not crash the run.
+3. `page.wait_for_timeout(2000)` after `page.goto()` unless a scraper documents otherwise.
+4. `parse_price()` is the only price parser.
+5. All prices are CAD. No `target_price` field - alerts on new all-time lows only.
+6. Return `None` when price or seller cannot be verified.
 
 ---
 
-## Standing rules (non-negotiable)
+## Alerts and Notion
 
-1. **No em dashes** in code, comments, strings, or output. Use "-" or rephrase.
-2. **Every scraper in try/except** - one broken page must never crash the full run.
-3. **`page.wait_for_timeout(2000)` after every `page.goto()`** - pages render JS dynamically.
-4. **`parse_price()` is the single price extraction utility** - never duplicate price parsing logic.
-5. **No target_price field** - alerts fire on new all-time lows only, not against a user-set threshold.
-6. **All prices are CAD.**
-7. **No fake or placeholder prices** - if a price cannot be found, return `None` and log it.
+- New all-time low: macOS notification via `osascript`, then opens product URL.
+- Optional Notion logging when `NOTION_TOKEN` and `NOTION_DATABASE_ID` are set in `.env`.
+- `extract_ram_storage()` populates RAM/Storage on Notion when tile titles include specs.
 
 ---
 
-## How alerts work
+## When a scraper breaks
 
-- On every run, each product's scraped price is compared against `price_records` in SQLite.
-- If the price is lower than the stored low (or it is the first time a product is seen), a macOS notification fires and the product URL opens in your browser.
-- Optional: set `NOTION_TOKEN` and `NOTION_DATABASE_ID` in `.env` to log each check to a Notion database. If unset, Notion logging is skipped silently.
+1. Open the product URL in a browser.
+2. Inspect price and seller DOM (or network JSON).
+3. Update selectors in the relevant `scrape_*` function in `tracker.py`.
+4. Re-run `python tracker.py` or `python test_refurb.py` for refurb.
 
----
-
-## How to add a product (without editing JSON manually)
-
-```bash
-python add_product.py              # Interactive
-python add_product.py --list       # See all tracked products
-python add_product.py --remove product_id_here
-python add_product.py --id dell_u2725d_amazon --name "Dell U2725D 5K - Amazon CA" --retailer amazon_ca --url "https://..."
-```
+Do not invest in `bestbuy_ca` or `amazon_ca` unless anti-bot posture changes.
 
 ---
 
-## Cron schedule
+## Cron (example)
 
-**Mac Mini (current):**
 ```
 00 07,19 * * * /usr/bin/python3 /path/to/price-tracker/tracker.py >> /path/to/price-tracker/cron.log 2>&1
 ```
 
-**Linux server (example):**
-```
-00 07,19 * * * /usr/bin/python3 ~/price-tracker/tracker.py >> ~/price-tracker/cron.log 2>&1
-```
-
----
-
-## Planned extensions (not yet built)
-
-- Notion database integration: write price records to a Notion database after each run, reusing the same API pattern as jd-pipeline's Role Finder database.
-- Local HTML dashboard: read from SQLite and render a price history table (low priority until Lenovo server is up).
-
----
-
-## What to do when a scraper breaks
-
-CSS selectors go stale when retailers update their markup. When a scraper returns `None` unexpectedly:
-
-1. Open the product URL in a browser.
-2. Inspect the price element and the seller info element.
-3. Update the CSS selectors in the relevant `scrape_*` function in `tracker.py`.
-4. Re-run manually with `python tracker.py` to verify.
-
-For `bestbuy_ca`, the scraper is paused (not dispatched) due to bot detection and zero yield; code is retained for possible re-enable. For `amazon_ca`, bot detection is the current blocker. Do not invest further effort unless the retailer changes their anti-bot posture.
-
-The Cursor prompt in README.md has the full context needed to diagnose this efficiently.
-
----
-
-## Cost
-
-$0/month. No external APIs. No cloud services. Runs on existing Mac Mini hardware under Cursor Pro (active through May 2027).
+The Cursor prompt block in README.md has the full session context for Composer.

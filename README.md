@@ -35,20 +35,20 @@ Verified retailers only. No Facebook Marketplace, Kijiji, Craigslist, or third-p
 
 **Working**
 - `apple_ca`
-- `apple_refurb_ca` (timeout fix applied)
-- `newegg_ca` (monitors working)
-- `asus_ca` (new)
+- `apple_refurb_ca`
+- `newegg_ca` (monitors)
+- `asus_ca`
+- `canada_computers` (migrated search URLs, result pre-filter, 30s deadline; confirm on your cron runs)
 
 **Paused (not dispatched)**
-- `bestbuy_ca` (bot detection, zero yield after category-page migration; scraper code kept for possible re-enable)
+- `bestbuy_ca` (bot detection, zero yield; scraper code kept for possible re-enable)
 
 **Not working**
-- `amazon_ca` (bot detection)
-- `canada_computers` (URL/JS issues)
+- `amazon_ca` (bot detection, not being pursued further)
 - `memory_express` (Cloudflare)
 - `staples_ca` (JS not rendering)
 
-Best Buy CA is paused (removed from `products.json` and `RETAILER_MAP`) due to bot detection and zero successful checks. Amazon CA is intentionally not being pursued further due to bot detection. Check those retailers manually when notified by alerts from other retailers.
+Best Buy CA is paused (removed from `products.json` and `RETAILER_MAP`). Amazon CA is not being pursued further due to bot detection.
 
 ## Setup
 
@@ -128,9 +128,9 @@ VERIFIED RETAILERS AND THEIR VERIFICATION LOGIC:
 - apple_ca, apple_refurb_ca, canada_computers, memory_express, staples_ca, asus_ca: direct retailers, no marketplace filtering needed
 
 SCRAPER STATUS:
-- Working: apple_ca, apple_refurb_ca, newegg_ca, asus_ca
+- Working: apple_ca, apple_refurb_ca, newegg_ca, asus_ca, canada_computers
 - Paused: bestbuy_ca (removed from watchlist; bot detection)
-- Not working: amazon_ca (bot detection, not being pursued further), canada_computers, memory_express, staples_ca
+- Not working: amazon_ca (bot detection), memory_express, staples_ca
 
 CODING RULES:
 - No em dashes anywhere in code or comments
@@ -163,22 +163,15 @@ Price Tracker/
   SECURITY.md         # Secret-handling and pre-public audit commands
 ```
 
-## Making this repository public
+## Security
 
-1. **Audit for secrets** - run the commands in [SECURITY.md](SECURITY.md). The quick check:
+This repository is public. Never commit `.env` (Notion tokens). See [SECURITY.md](SECURITY.md) for audit commands and what to do if a secret is exposed.
 
-   ```bash
-   git log --all --oneline -- .env          # must be empty
-   git check-ignore -v .env                 # must show .gitignore
-   git log -p --all | grep 'NOTION_TOKEN='  # only placeholder lines in .env.example
-   ```
+Quick check before each push:
 
-2. **Review committed files** on GitHub - confirm no `.env`, database, or logs.
-
-3. **Add/keep `LICENSE`** - MIT license is included for open distribution.
-
-4. **GitHub Settings** - General - Danger Zone - Change visibility - Public.
-
-Keep `.env` local forever. Rotate Notion tokens if they were ever committed.
+```bash
+git status                    # .env must not appear
+git check-ignore -v .env      # must show .gitignore rule
+```
 
 ---

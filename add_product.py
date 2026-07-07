@@ -31,6 +31,7 @@ VALID_RETAILERS = [
     "memory_express",
     "newegg_ca",
     "staples_ca",
+    "asus_ca",
 ]
 
 
