@@ -2,7 +2,7 @@
 
 ## What this project is
 
-A Python-based price monitoring pipeline for Canadian Apple hardware and 5K monitors. It scrapes verified Canadian retailers twice daily, stores price history in SQLite, and sends Discord alerts on new all-time lows. No cloud services. No paid APIs. Runs on Mac Mini (cron) with a planned migration to a headless Lenovo Ubuntu server in Q1 2027.
+A Python-based price monitoring pipeline for Canadian Apple hardware and 5K monitors. It scrapes verified Canadian retailers twice daily, stores price history in SQLite, and sends macOS notifications on new all-time lows. Optional Notion logging. No cloud services. No paid APIs. Runs on Mac Mini (cron) with a planned migration to a headless Lenovo Ubuntu server in Q1 2027.
 
 **Repo location:** `~/Documents/price-tracker/` (Mac Mini)
 
@@ -12,11 +12,12 @@ A Python-based price monitoring pipeline for Canadian Apple hardware and 5K moni
 
 | File | Purpose |
 |---|---|
-| `tracker.py` | Main engine: scrapes all retailers, writes to SQLite, fires Discord alerts |
+| `tracker.py` | Main engine: scrapes all retailers, writes to SQLite, fires macOS notifications |
 | `products.json` | Watchlist of product-retailer pairs (69 entries as of July 2026) |
 | `add_product.py` | CLI tool to add/remove/list products without editing JSON manually |
 | `price_history.db` | Auto-created SQLite: `price_records` (current lows) + `price_history` (every run) |
-| `.env` | `DISCORD_WEBHOOK_URL` |
+| `.env` | Optional `NOTION_TOKEN` and `NOTION_DATABASE_ID` (copy from `.env.example`) |
+| `requirements.txt` | Python dependencies (`pip install -r requirements.txt`) |
 | `tracker.log` | Auto-created run log |
 | `cron.log` | Auto-created cron output |
 
@@ -97,9 +98,8 @@ Best Buy CA is paused (removed from `products.json` and `RETAILER_MAP`) due to b
 ## How alerts work
 
 - On every run, each product's scraped price is compared against `price_records` in SQLite.
-- If the price is lower than the stored low (or it is the first time a product is seen), a Discord alert fires.
-- Discord alerts use rich embeds: product name, new price, previous low, drop percentage, retailer, link.
-- If Discord webhook is not configured in `.env`, the script logs a warning and skips silently. It does not crash.
+- If the price is lower than the stored low (or it is the first time a product is seen), a macOS notification fires and the product URL opens in your browser.
+- Optional: set `NOTION_TOKEN` and `NOTION_DATABASE_ID` in `.env` to log each check to a Notion database. If unset, Notion logging is skipped silently.
 
 ---
 

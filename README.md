@@ -53,10 +53,12 @@ Best Buy CA is paused (removed from `products.json` and `RETAILER_MAP`) due to b
 ## Setup
 
 ```bash
-pip install playwright requests python-dotenv
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 playwright install chromium
 cp .env.example .env
-# Fill in your Discord webhook URL in .env
+# Optional: add NOTION_TOKEN and NOTION_DATABASE_ID to .env for Notion logging
 ```
 
 ## Run Manually
@@ -112,11 +114,11 @@ Paste this into Cursor Composer (Cmd+I) at the start of any session working on t
 You are helping me maintain and extend price-tracker, a Python price monitoring tool for Canadian Apple/monitor retailers.
 
 PROJECT CONTEXT:
-- tracker.py: main script. Playwright (headless Chromium) scrapes product pages, SQLite stores price history, Discord webhooks send alerts on new all-time lows.
+- tracker.py: main script. Playwright (headless Chromium) scrapes product pages, SQLite stores price history, macOS notifications on new all-time lows, optional Notion logging.
 - products.json: watchlist of 69 product-retailer pairs. No target_price field - alerts fire on any new all-time low only.
 - add_product.py: CLI tool to interactively add/remove/list products without editing JSON manually.
 - price_history.db: auto-created SQLite with two tables: price_records (current low per product) and price_history (every run logged).
-- .env: holds DISCORD_WEBHOOK_URL.
+- .env: holds optional NOTION_TOKEN and NOTION_DATABASE_ID. Copy from .env.example. Never commit .env.
 - Project path: /Users/jainishsoni/Documents/ClaudeProjects_Documents/Price Tracker/
 
 VERIFIED RETAILERS AND THEIR VERIFICATION LOGIC:
@@ -150,6 +152,7 @@ Price Tracker/
   tracker.py          # Main scraper and alert engine
   add_product.py      # CLI tool to manage products.json
   products.json       # Watchlist (69 entries)
+  requirements.txt    # Python dependencies
   .env                # Your secrets (never share or upload)
   .env.example        # Template
   .cursorignore       # Keeps .env and logs out of Cursor indexing
